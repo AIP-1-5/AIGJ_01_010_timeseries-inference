@@ -19,7 +19,7 @@
 | 4 이상 탐지 | 탐지율 80% · 헛경보 하루 1회 이하 | **규칙 + 예측 오차: 80%, 하루 1.0회** | ✅ |
 | 5 상태 | 규칙보다 좋음 · 환기 경보 재현율 85% | 사용 여부 F1 85.8 vs 규칙 79.1 · **환기 재현율 97.4%** | ✅ |
 | 6 사전학습 | 정확도·구간·시간·메모리로 판단 | Chronos-Bolt: 합성에선 최하위, **내 실데이터에선 1등(36.0 vs GRU 39.3 vs 현재값 42.0ppm)**, 보드 92ms | ✅ |
-| 7 엣지 | 변환 후 CO₂ 차이 1ppm 이하 · 측정 조건 기록 | ONNX Runtime **0.22ms** (PyTorch CPU 62ms, 약 280배), 차이 0.0001ppm | ✅ · TensorRT는 보드에 설치 대기 |
+| 7 엣지 | 변환 후 CO₂ 차이 1ppm 이하 · 측정 조건 기록 | ONNX Runtime **0.22ms** (PyTorch CPU 62ms, 약 280배), 차이 0.0001ppm | ✅ (TensorRT GPU FP32 최대 차이 0.4~0.5ppm, FP16 1.1~1.4ppm — 이 작은 모델은 GPU 0.9ms로 CPU보다 느림) |
 | 8 서비스 | 12시간 무중단 · 끊김 경보 · 조회 API · 형식 문서 | **12시간 713주기 실패 0**, 평균 0.95초 · 수집기 정지 시험에서 3.5분 만에 '데이터 끊김' 경보 · 헛경보 0 | ✅ (MQTT 발행 가동, 10-22 11:20~) |
 
 ## 구성
@@ -149,7 +149,7 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python task7_report.py
 ```
 
-측정 조건: 전력 모드 pmode 0002, 클럭 고정 안 함. 보드에 CUDA·TensorRT가 없어 TensorRT FP16은 팀 확인 후 설치·측정 예정. 보고서: [`task7_report.md`](inference/reports/task7_report.md)
+측정 조건: 전력 모드 pmode 0002, 클럭 고정 안 함. TensorRT는 sudo 없이 내 가상환경(`.venv-trt`, pip `tensorrt-cu13`)으로 설치해 GPU에서 FP32·FP16 측정 (`addenda_task7_trt.py`). 보고서: [`task7_report.md`](inference/reports/task7_report.md)
 
 ## 과제 8. 상시 추론 서비스
 
