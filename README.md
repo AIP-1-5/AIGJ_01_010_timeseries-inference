@@ -13,7 +13,7 @@
 |---|---|---|---|
 | 1 수집 | 브로커 재시작 1분 내 재수집 · 재부팅 자동 시작 · 24시간 커버율 95% | 재접속 약 1초 · 강제 종료 후 5초 자동 재시작 · **실제 보드 재부팅(10-21 18:54) 후 2분 만에 자동 재개** · 실습실 98.4%(CO₂ 95.1%) · 사무실 97.8% | ✅ (회의실·사무실 밖은 센서 1대라 미달, 원인 기록) |
 | 2 기준선 | 학습 기간으로만 정규화 · 같은 조건 비교 | 시간순 70/15/15, 기준선 3종 5/15/30/60분 MAE (내 수집 데이터 + InfluxDB 8주) | ✅ |
-| 3 예측 | 60분 CO₂ 오차 '현재값 유지'보다 30% 이상 감소 | 합성(일정 포함) **GRU 63% 감소** (40.9 → 15.0ppm) · 실데이터는 개념 변화 확인 후 최근 데이터 재학습으로 15% | ✅ 합성 / △ 실데이터 |
+| 3 예측 | 60분 CO₂ 오차 '현재값 유지'보다 30% 이상 감소 | 합성(일정 포함) **GRU 63% 감소** (40.9 → 15.0ppm) · **실데이터 + 실제 실습실 시간표: 41% 감소** (50.0 → 29.3ppm) | ✅ 합성 / ✅ 실데이터 |
 | 4 이상 탐지 | 탐지율 80% · 헛경보 하루 1회 이하 | **규칙 + 예측 오차: 80%, 하루 1.0회** | ✅ |
 | 5 상태 | 규칙보다 좋음 · 환기 경보 재현율 85% | 사용 여부 F1 85.8 vs 규칙 79.1 · **환기 재현율 97.4%** | ✅ |
 | 6 사전학습 | 정확도·구간·시간·메모리로 판단 | Chronos-Bolt: 합성에선 최하위, **내 실데이터에선 1등(36.0 vs GRU 39.3 vs 현재값 42.0ppm)**, 보드 92ms | ✅ |
@@ -105,10 +105,12 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python task3_forecast.py --models gru lstm tcn   # 합성: 일정 포함/제외, 모델 3종
 .venv/bin/python task3_real.py --db data/influx_56d.db     # 실데이터 8주 검증
 .venv/bin/python task3_advanced.py                    # 심화: 과거 길이 × 모델, 처음 보는 공간
+.venv/bin/python task_schedule_real.py --db data/influx_56d.db   # 실데이터 + 실제 시간표: 일정 포함/제외
 ```
 
 - 입력: 과거 2시간(24칸) CO₂·온도·습도 + 시간대·요일 + 공간 + 앞으로 60분 일정 인원 → 출력: 60분 12칸을 한 번에(지금 값 대비 변화량)
 - 실데이터에서 9월(전 기수, 평균 1,281ppm)과 10월(560ppm)의 사용 패턴이 크게 달라(개념 변화) 9/27 이후 데이터로 재학습
+- 실제 실습실 시간표(평일 09:00~11:30 · 13:00~18:00)를 넣으면 실데이터 60분 오차 39.4 → 29.3ppm. 좋아지는 곳은 수업 시작·점심·종료 앞뒤(107 → 53ppm) — [`real56/task_schedule_real_report.md`](inference/reports/real56/task_schedule_real_report.md)
 
 보고서: [`task3_report.md`](inference/reports/task3_report.md), [`task3_advanced_report.md`](inference/reports/task3_advanced_report.md)
 
