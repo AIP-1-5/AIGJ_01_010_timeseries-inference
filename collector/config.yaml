@@ -6,7 +6,7 @@
 timezone: Asia/Seoul        # 센서 시각에 시간대가 없을 때 이 시간대로 해석
 
 mqtt:
-  host: <교육장-MQTT-브로커>
+  host: <교육장-MQTT-브로커>      # 공개 저장소라 가림 → 실제 주소는 .env 의 MQTT_HOST 로 넣는다 (과제 이슈 참고)
   port: 1883
   username_env: MQTT_USERNAME   # .env 에서 읽을 환경변수 이름
   password_env: MQTT_PASSWORD
