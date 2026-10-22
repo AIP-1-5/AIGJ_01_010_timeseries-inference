@@ -1,0 +1,305 @@
+{
+ "input_ranges": {
+  "x_seq": {
+   "val_min": -1.9781981706619263,
+   "val_max": 5.849935054779053,
+   "test_min": -4.454023838043213,
+   "test_max": 7.74860954284668
+  },
+  "x_future": {
+   "val_min": 0.0,
+   "val_max": 1.0,
+   "test_min": 0.0,
+   "test_max": 1.0
+  }
+ },
+ "ort": "1.19.2",
+ "onnx": "1.19.1",
+ "time": "2026-10-22 10:17:33",
+ "calib": "검증 주(4주차) 샘플 512개 (MinMax)",
+ "test_samples": 6653,
+ "models": {
+  "GRU": {
+   "FP32": {
+    "file": "models/forecast_gru.onnx",
+    "size_kb": 183.9482421875,
+    "test_mae60_co2": 14.960370063781738,
+    "val_mae60_co2": 18.677631378173828,
+    "max_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "mean_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "p99_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "frac_samples_diff_gt_10ppm": 0.0,
+    "worst_sample": {
+     "space": "강의실1",
+     "time": "2026-10-12 00:00:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "Shape": 1,
+     "Constant": 14,
+     "Gather": 2,
+     "Unsqueeze": 1,
+     "Concat": 2,
+     "ConstantOfShape": 1,
+     "Transpose": 2,
+     "Slice": 2,
+     "GRU": 2,
+     "Squeeze": 2,
+     "Gemm": 2,
+     "Relu": 1,
+     "Reshape": 1
+    }
+   },
+   "INT8 동적": {
+    "file": "models/int8/forecast_gru_int8_dyn.onnx",
+    "size_kb": 167.0146484375,
+    "test_mae60_co2": 15.227270126342773,
+    "val_mae60_co2": 18.9522705078125,
+    "max_abs_co2_diff_ppm_vs_fp32": 10.560089111328125,
+    "mean_abs_co2_diff_ppm_vs_fp32": 0.8127459287643433,
+    "p99_abs_co2_diff_ppm_vs_fp32": 5.419492244720459,
+    "frac_samples_diff_gt_10ppm": 0.0006012325266796934,
+    "worst_sample": {
+     "space": "강의실1",
+     "time": "2026-10-14 08:30:00+09:00",
+     "x_future_max": 0.8666666746139526
+    },
+    "ops": {
+     "Shape": 1,
+     "Transpose": 2,
+     "Gather": 2,
+     "Unsqueeze": 1,
+     "Concat": 2,
+     "ConstantOfShape": 1,
+     "Slice": 2,
+     "GRU": 2,
+     "Squeeze": 2,
+     "DynamicQuantizeLinear": 2,
+     "Mul": 4,
+     "MatMulInteger": 2,
+     "Cast": 2,
+     "Add": 2,
+     "Relu": 1,
+     "Reshape": 1
+    }
+   },
+   "INT8 정적": {
+    "file": "models/int8/forecast_gru_int8_static.onnx",
+    "size_kb": 170.2236328125,
+    "test_mae60_co2": 15.289446830749512,
+    "val_mae60_co2": 18.812740325927734,
+    "max_abs_co2_diff_ppm_vs_fp32": 216.82763671875,
+    "mean_abs_co2_diff_ppm_vs_fp32": 1.684926986694336,
+    "p99_abs_co2_diff_ppm_vs_fp32": 6.421735763549805,
+    "frac_samples_diff_gt_10ppm": 0.006312941530136781,
+    "worst_sample": {
+     "space": "라운지",
+     "time": "2026-10-12 12:50:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "DequantizeLinear": 11,
+     "QuantizeLinear": 7,
+     "Shape": 1,
+     "Transpose": 2,
+     "Gather": 2,
+     "Unsqueeze": 1,
+     "Concat": 2,
+     "ConstantOfShape": 1,
+     "Slice": 2,
+     "GRU": 2,
+     "Squeeze": 2,
+     "Gemm": 2,
+     "Reshape": 1
+    }
+   }
+  },
+  "LSTM": {
+   "FP32": {
+    "file": "models/forecast_lstm.onnx",
+    "size_kb": 236.0595703125,
+    "test_mae60_co2": 14.873542785644531,
+    "val_mae60_co2": 18.497968673706055,
+    "max_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "mean_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "p99_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "frac_samples_diff_gt_10ppm": 0.0,
+    "worst_sample": {
+     "space": "강의실1",
+     "time": "2026-10-12 00:00:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "Shape": 1,
+     "Constant": 20,
+     "Gather": 2,
+     "Unsqueeze": 1,
+     "Concat": 2,
+     "ConstantOfShape": 1,
+     "Transpose": 2,
+     "Slice": 4,
+     "LSTM": 2,
+     "Squeeze": 2,
+     "Gemm": 2,
+     "Relu": 1,
+     "Reshape": 1
+    }
+   },
+   "INT8 동적": {
+    "file": "models/int8/forecast_lstm_int8_dyn.onnx",
+    "size_kb": 68.298828125,
+    "test_mae60_co2": 14.962777137756348,
+    "val_mae60_co2": 18.577823638916016,
+    "max_abs_co2_diff_ppm_vs_fp32": 36.79534912109375,
+    "mean_abs_co2_diff_ppm_vs_fp32": 0.8788112998008728,
+    "p99_abs_co2_diff_ppm_vs_fp32": 5.965924263000488,
+    "frac_samples_diff_gt_10ppm": 0.008417255373515706,
+    "worst_sample": {
+     "space": "라운지",
+     "time": "2026-10-13 11:40:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "Shape": 1,
+     "Transpose": 2,
+     "Gather": 2,
+     "Unsqueeze": 1,
+     "Concat": 2,
+     "ConstantOfShape": 1,
+     "Slice": 2,
+     "DynamicQuantizeLSTM": 2,
+     "Squeeze": 2,
+     "DynamicQuantizeLinear": 2,
+     "Mul": 4,
+     "MatMulInteger": 2,
+     "Cast": 2,
+     "Add": 2,
+     "Relu": 1,
+     "Reshape": 1
+    }
+   },
+   "INT8 정적": {
+    "file": "models/int8/forecast_lstm_int8_static.onnx",
+    "size_kb": 221.6865234375,
+    "test_mae60_co2": 15.269794464111328,
+    "val_mae60_co2": 18.73314094543457,
+    "max_abs_co2_diff_ppm_vs_fp32": 210.75634765625,
+    "mean_abs_co2_diff_ppm_vs_fp32": 1.5836552381515503,
+    "p99_abs_co2_diff_ppm_vs_fp32": 6.287203311920166,
+    "frac_samples_diff_gt_10ppm": 0.0055614008717871635,
+    "worst_sample": {
+     "space": "라운지",
+     "time": "2026-10-12 12:50:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "DequantizeLinear": 11,
+     "QuantizeLinear": 7,
+     "Shape": 1,
+     "Transpose": 2,
+     "Gather": 2,
+     "Unsqueeze": 1,
+     "Concat": 2,
+     "ConstantOfShape": 1,
+     "Slice": 2,
+     "LSTM": 2,
+     "Squeeze": 2,
+     "Gemm": 2,
+     "Reshape": 1
+    }
+   }
+  },
+  "TCN": {
+   "FP32": {
+    "file": "models/forecast_tcn.onnx",
+    "size_kb": 188.369140625,
+    "test_mae60_co2": 15.604185104370117,
+    "val_mae60_co2": 19.658708572387695,
+    "max_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "mean_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "p99_abs_co2_diff_ppm_vs_fp32": 0.0,
+    "frac_samples_diff_gt_10ppm": 0.0,
+    "worst_sample": {
+     "space": "강의실1",
+     "time": "2026-10-12 00:00:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "Transpose": 5,
+     "Constant": 38,
+     "ConstantOfShape": 4,
+     "Concat": 5,
+     "Reshape": 9,
+     "Slice": 4,
+     "Cast": 4,
+     "Pad": 4,
+     "Conv": 4,
+     "Relu": 5,
+     "Gather": 1,
+     "Gemm": 2
+    }
+   },
+   "INT8 동적": {
+    "file": "models/int8/forecast_tcn_int8_dyn.onnx",
+    "size_kb": 55.6806640625,
+    "test_mae60_co2": 15.97240161895752,
+    "val_mae60_co2": 20.061492919921875,
+    "max_abs_co2_diff_ppm_vs_fp32": 29.802978515625,
+    "mean_abs_co2_diff_ppm_vs_fp32": 1.3635194301605225,
+    "p99_abs_co2_diff_ppm_vs_fp32": 10.84197998046875,
+    "frac_samples_diff_gt_10ppm": 0.051405381031113785,
+    "worst_sample": {
+     "space": "회의실",
+     "time": "2026-10-16 11:50:00+09:00",
+     "x_future_max": 1.0
+    },
+    "ops": {
+     "Reshape": 5,
+     "Transpose": 1,
+     "DynamicQuantizeLinear": 6,
+     "Mul": 12,
+     "ConvInteger": 4,
+     "Cast": 6,
+     "Add": 6,
+     "Relu": 5,
+     "Gather": 1,
+     "Concat": 1,
+     "MatMulInteger": 2
+    }
+   },
+   "INT8 정적": {
+    "file": "models/int8/forecast_tcn_int8_static.onnx",
+    "size_kb": 61.873046875,
+    "test_mae60_co2": 15.91520881652832,
+    "val_mae60_co2": 19.626420974731445,
+    "max_abs_co2_diff_ppm_vs_fp32": 179.245849609375,
+    "mean_abs_co2_diff_ppm_vs_fp32": 1.9020692110061646,
+    "p99_abs_co2_diff_ppm_vs_fp32": 8.767979621887207,
+    "frac_samples_diff_gt_10ppm": 0.02209529535547873,
+    "worst_sample": {
+     "space": "라운지",
+     "time": "2026-10-12 12:50:00+09:00",
+     "x_future_max": 0.0
+    },
+    "ops": {
+     "DequantizeLinear": 24,
+     "QuantizeLinear": 12,
+     "Transpose": 1,
+     "Conv": 4,
+     "Gather": 1,
+     "Concat": 1,
+     "Gemm": 2,
+     "Reshape": 1
+    }
+   }
+  }
+ },
+ "dyn_weight_type": {
+  "GRU": "QInt8",
+  "LSTM": "QInt8",
+  "TCN": "QUInt8 (QInt8 실행 불가로 대체)"
+ },
+ "errors": {
+  "TCN dynamic QInt8": "NotImplemented: [ONNXRuntimeError] : 9 : NOT_IMPLEMENTED : Could not find an implementation for ConvInteger(10) node with name '/tcn/tcn.1/Conv_quant'"
+ }
+}

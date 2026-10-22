@@ -172,6 +172,7 @@ class Engine:
                 times = [(latest_t + pd.Timedelta(minutes=5 * (k + 1))).isoformat() for k in range(12)]
                 res["forecast"] = {"available": True, "step_min": 5, "horizon_min": 60, "base_time": latest_t.isoformat(),
                                    "times": times, "co2": co2_f.tolist(), "temperature": tmp_f.tolist(),
+                                   "base_co2": round(float(base["co2"]), 1),
                                    "model": self.meta.get("model_name", "service_gru") + " (ONNX Runtime)"}
                 if base["co2"] < 1000:
                     over = np.where(co2_f >= 1000)[0]

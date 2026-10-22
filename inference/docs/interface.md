@@ -24,7 +24,10 @@
 
 구독 예: `mosquitto_sub -h <교육장-MQTT-브로커> -u <ID> -P <PW> -t 'team5b/inference/#' -v`
 
-## 3. HTTP 조회 API (보드 B, 포트 8080, Tailscale 망 안에서)
+## 3. HTTP 조회 API
+- 주소: **`http://<보드B-Tailscale-IP>:8080`** (보드 B `team5-b`, Tailscale 망 안에서 접속. MagicDNS 를 켠 기기는 `http://team5-b:8080`)
+- 예: `curl http://<보드B-Tailscale-IP>:8080/spaces/lab/forecast?minutes=30`
+
 | 요청 | 응답 |
 | --- | --- |
 | `GET /health` | `{"ok": true, "last_cycle_age_sec": 12.3, "uptime_sec": 3600, "mqtt": true}` (마지막 주기가 3분 넘게 없으면 503) |
@@ -33,6 +36,7 @@
 | `GET /spaces/meeting/forecast?minutes=30` | "회의실 30분 뒤 CO₂는?" → `{"minutes": 30, "co2": 812.4, "temperature": 21.3, "time": "...", "base_time": "..."}` (5분 단위) |
 | `GET /alarms?hours=12` | 최근 경보 내역 |
 | `GET /log/summary?hours=12` | 주기 수·성공·실패·처리 시간(평균·p95·최대)·최대 공백 |
+| `GET /monitor?hours=24` | 자기 채점: 공간·예측 길이(5~60분)별 모델 오차 vs '현재값 유지' 오차, 채점 수, 개선율(%) |
 
 ## 4. 공간 결과 JSON (`team5b/inference/<slug>`, `GET /spaces/<slug>`)
 ```json
@@ -48,6 +52,7 @@
     "times": ["...10:10", "...10:15", "…", "...11:05"],   // 12개
     "co2": [545.1, 551.0, …, 667.3],
     "temperature": [20.5, 20.5, …, 20.6],
+    "base_co2": 539.0,                           // 기준 칸의 실제 CO₂ (채점·현재값 유지 비교용)
     "model": "service_gru (ONNX Runtime)"
   },
   "alerts": {
@@ -66,6 +71,11 @@
       {"type": "data_gap|out_of_range|spike|stuck", "metric": "co2", "detail": "..."}
     ],
     "data_gap": false                            // 수집기 전체 3분 이상 수신 없음, 또는 이 공간이 평소 주기의 3배(최소 15분) 이상 조용함
+  },
+  "monitor": {                                   // 자기 채점: 60분 전에 한 예측을 지금 실제 값으로 채점 (최근 6시간)
+    "window_hours": 6.0, "graded_60min": 72,
+    "mae_60min_model": 31.2, "mae_60min_persistence": 38.5, "skill_pct": 19.0,
+    "degraded": false                            // 모델 오차가 '현재값 유지'의 1.2배 이상 + 5ppm 이상 차이 (채점 36개 이상일 때) → 재학습 필요
   }
 }
 ```
@@ -82,6 +92,7 @@
 | `model_residual` | 예상보다 계속 높음 (환기·냉방 정지 의심) | 설비 확인 |
 | `data_gap` | 수집기 전체 3분 이상 수신 없음 또는 공간별 평소 주기의 3배 이상 조용함 | 수집기·게이트웨이 확인 |
 | `stuck` / `spike` / `out_of_range` | 센서 값 고정 / 튄 값 / 범위 밖 | 센서 확인 |
+| `model_degraded` | 자기 채점 결과 모델이 '현재값 유지'보다 나빠짐 | 최근 데이터로 재학습 후 모델 파일 교체(무중단) |
 
 ## 6. 계산 방식 요약
 - 전처리는 학습과 **같은 코드**(`tsinf/prep.py`): 재전송 중복 제거 → 게이트웨이 시계 보정 → 범위 밖 제거 → 기기별 5분 평균 → 공간 평균 → 15분 이하 결측 보간

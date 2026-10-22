@@ -1,0 +1,85 @@
+{
+ "free_before": {
+  "total": 7485,
+  "used": 3069,
+  "free": 1148,
+  "shared": 5,
+  "buff/cache": 3498,
+  "available": 4416
+ },
+ "time": "2026-10-22 10:18:31",
+ "steps": [
+  {
+   "step": "시작 (python)",
+   "VmHWM": 11.5546875,
+   "VmRSS": 11.5546875
+  },
+  {
+   "VmHWM": 44.94921875,
+   "VmRSS": 44.94921875,
+   "step": "import onnxruntime+numpy",
+   "load_s": 0.05
+  },
+  {
+   "VmHWM": 54.515625,
+   "VmRSS": 54.515625,
+   "step": "+ service_gru.onnx (1회 실행 포함)",
+   "load_s": 0.05
+  },
+  {
+   "VmHWM": 55.25390625,
+   "VmRSS": 55.25390625,
+   "step": "+ forecast_gru.onnx (1회 실행 포함)",
+   "load_s": 0.01
+  },
+  {
+   "VmHWM": 56.25390625,
+   "VmRSS": 56.25390625,
+   "step": "+ forecast_lstm.onnx (1회 실행 포함)",
+   "load_s": 0.01
+  },
+  {
+   "VmHWM": 57.23828125,
+   "VmRSS": 57.23828125,
+   "step": "+ forecast_tcn.onnx (1회 실행 포함)",
+   "load_s": 0.02
+  },
+  {
+   "VmHWM": 170.20703125,
+   "VmRSS": 170.20703125,
+   "step": "+ state_models.pkl (sklearn 1.6.1)",
+   "load_s": 1.86
+  },
+  {
+   "VmHWM": 355.0859375,
+   "VmRSS": 355.0859375,
+   "step": "+ import torch 2.14.1+cpu",
+   "load_s": 2.5
+  },
+  {
+   "VmHWM": 480.0234375,
+   "VmRSS": 480.0234375,
+   "step": "+ chronos-bolt-tiny 로드",
+   "load_s": 7.57
+  },
+  {
+   "VmHWM": 531.44921875,
+   "VmRSS": 531.44921875,
+   "step": "+ chronos 추론 5회 (배치 4, ctx 24h)",
+   "load_s": 0.75
+  }
+ ],
+ "autoencoder_files": [],
+ "free_after_loaded": {
+  "total": 7485,
+  "used": 3421,
+  "free": 718,
+  "shared": 5,
+  "buff/cache": 3576,
+  "available": 4064
+ },
+ "final_rss_mb": {
+  "VmHWM": 531.45703125,
+  "VmRSS": 531.45703125
+ }
+}

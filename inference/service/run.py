@@ -26,6 +26,7 @@ import time
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import parse_qs, unquote, urlparse
 
+import numpy as np
 import pandas as pd
 import yaml
 
@@ -35,6 +36,10 @@ from service.infer import Engine, slug  # noqa: E402
 
 log = logging.getLogger("service")
 ALARM_REPEAT_SEC = 3600          # 같은 경보는 1시간 안에 다시 보내지 않음
+MONITOR_WINDOW_SEC = 6 * 3600     # 최근 6시간 채점 결과로 판단
+MONITOR_MIN_N = 36                # 60분 예측 36개(3시간치) 이상 채점됐을 때만
+MONITOR_RATIO = 1.2               # 모델 오차가 '현재값 유지'의 1.2배를 넘으면 경보
+MONITOR_MIN_DIFF = 5.0            # 단, 차이가 5ppm 이상일 때만 (조용한 밤에 4 vs 3.5ppm 같은 작은 차이로 울리지 않게)
 
 
 def load_env(path):
@@ -56,6 +61,13 @@ class Store:
         CREATE TABLE IF NOT EXISTS latest (space TEXT PRIMARY KEY, slug TEXT, ts REAL, json TEXT);
         CREATE TABLE IF NOT EXISTS cycles (ts REAL, ok INTEGER, duration_ms REAL, n_spaces INTEGER, error TEXT);
         CREATE TABLE IF NOT EXISTS alarms (ts REAL, space TEXT, kind TEXT, metric TEXT, detail TEXT, sent INTEGER);
+        CREATE TABLE IF NOT EXISTS forecasts (space TEXT, base_time TEXT, target_time TEXT, horizon INTEGER,
+                                              co2_pred REAL, co2_base REAL, graded INTEGER DEFAULT 0,
+                                              UNIQUE(space, base_time, horizon));
+        CREATE INDEX IF NOT EXISTS idx_fc_target ON forecasts(space, target_time, graded);
+        CREATE TABLE IF NOT EXISTS scores (ts REAL, space TEXT, target_time TEXT, horizon INTEGER,
+                                           model_err REAL, persist_err REAL);
+        CREATE INDEX IF NOT EXISTS idx_scores_ts ON scores(ts);
         CREATE INDEX IF NOT EXISTS idx_cycles_ts ON cycles(ts);
         CREATE INDEX IF NOT EXISTS idx_alarms_ts ON alarms(ts);
         """)
@@ -110,6 +122,7 @@ class Service:
             out = self.engine.run(self.cfg["collector_db"])
             prefix = self.cfg["mqtt"].get("prefix", "team5b/inference")
             for sp, res in out["spaces"].items():
+                res["monitor"] = self._self_check(sp, res, t0)
                 self.store.x("INSERT OR REPLACE INTO latest(space, slug, ts, json) VALUES (?,?,?,?)",
                              (sp, res["slug"], t0, json.dumps(res, ensure_ascii=False, default=str)))
                 self._publish(f"{prefix}/{res['slug']}", res)
@@ -126,6 +139,37 @@ class Service:
             log.exception("주기 실패 (다음 주기에 다시 시도)")
             self.store.x("INSERT INTO cycles VALUES (?,?,?,?,?)", (t0, 0, (time.time() - t0) * 1000, 0, f"{type(e).__name__}: {e}"))
 
+    # ---------------------------------------------------------------- 자기 채점 (과제 8 심화)
+    def _self_check(self, sp, res, now):
+        """예측을 저장해 두었다가 그 시각이 오면 실제 값과 비교해 채점한다.
+        같은 시점의 '현재값 유지' 오차와 비교해, 모델이 기준선보다 나빠지면 알린다."""
+        f = res.get("forecast", {})
+        if f.get("available") and f.get("base_co2") is not None:
+            bt = f["base_time"]
+            for k, (t, c) in enumerate(zip(f["times"], f["co2"])):
+                self.store.x("INSERT OR IGNORE INTO forecasts(space, base_time, target_time, horizon, co2_pred, co2_base) "
+                             "VALUES (?,?,?,?,?,?)", (sp, bt, t, (k + 1) * 5, c, f["base_co2"]))
+            # 지금 칸(bt)을 목표로 했던 과거 예측들을 채점
+            due = self.store.q("SELECT rowid, horizon, co2_pred, co2_base FROM forecasts WHERE space=? AND target_time=? AND graded=0",
+                               (sp, bt))
+            for rid, hz, pred, base in due:
+                self.store.x("INSERT INTO scores VALUES (?,?,?,?,?,?)",
+                             (now, sp, bt, hz, abs(pred - f["base_co2"]), abs(base - f["base_co2"])))
+                self.store.x("UPDATE forecasts SET graded=1 WHERE rowid=?", (rid,))
+            self.store.x("DELETE FROM forecasts WHERE space=? AND target_time < ? AND graded=0 AND base_time < ?",
+                         (sp, bt, (pd.Timestamp(bt) - pd.Timedelta(hours=3)).isoformat()))   # 끊긴 동안 못 채점한 것 정리
+        rows = self.store.q("SELECT model_err, persist_err FROM scores WHERE space=? AND horizon=60 AND ts >= ?",
+                            (sp, now - MONITOR_WINDOW_SEC))
+        n = len(rows)
+        if n == 0:
+            return {"graded_60min": 0, "window_hours": MONITOR_WINDOW_SEC / 3600}
+        m = float(np.mean([r[0] for r in rows]))
+        p = float(np.mean([r[1] for r in rows]))
+        degraded = n >= MONITOR_MIN_N and m > p * MONITOR_RATIO and m - p >= MONITOR_MIN_DIFF
+        return {"window_hours": MONITOR_WINDOW_SEC / 3600, "graded_60min": n,
+                "mae_60min_model": round(m, 1), "mae_60min_persistence": round(p, 1),
+                "skill_pct": round((1 - m / p) * 100, 1) if p > 0 else None, "degraded": degraded}
+
     def _alarms(self, sp, res, prefix):
         items = []
         a = res.get("anomaly", {})
@@ -133,6 +177,10 @@ class Service:
             items.append((r["type"], r.get("metric"), r.get("detail")))
         if a.get("model_alarm"):
             items.append(("model_residual", a.get("cause"), f"예상보다 높음 z={a.get('score')}"))
+        mo = res.get("monitor", {})
+        if mo.get("degraded"):
+            items.append(("model_degraded", "co2", f"최근 {mo['window_hours']:.0f}시간 60분 예측 오차 {mo['mae_60min_model']}ppm > "
+                                                   f"현재값 유지 {mo['mae_60min_persistence']}ppm (재학습 필요)"))
         al = res.get("alerts", {})
         if al.get("ventilation_soon"):
             items.append(("ventilation_soon", "co2", f"30분 안에 1,000ppm 초과 확률 {al.get('ventilation_prob')}"))
@@ -214,6 +262,15 @@ class Service:
                                            (time.time() - hours * 3600,))
                         return self._send(200, [{"time": pd.Timestamp(r[0], unit="s", tz="UTC").tz_convert("Asia/Seoul").isoformat(),
                                                  "space": r[1], "kind": r[2], "metric": r[3], "detail": r[4]} for r in rows])
+                    if parts[0] == "monitor":
+                        hours = float(qs.get("hours", ["24"])[0])
+                        rows = svc.store.q("SELECT space, horizon, AVG(model_err), AVG(persist_err), COUNT(*) FROM scores "
+                                           "WHERE ts >= ? GROUP BY space, horizon ORDER BY space, horizon", (time.time() - hours * 3600,))
+                        out = {}
+                        for sp, hz, me, pe, n in rows:
+                            out.setdefault(sp, []).append({"horizon_min": hz, "n": n, "mae_model": round(me, 1), "mae_persistence": round(pe, 1),
+                                                           "skill_pct": round((1 - me / pe) * 100, 1) if pe else None})
+                        return self._send(200, {"hours": hours, "unit": "ppm", "spaces": out})
                     if parts[0] == "log" and len(parts) > 1 and parts[1] == "summary":
                         hours = float(qs.get("hours", ["12"])[0])
                         return self._send(200, summary(svc.store, hours))

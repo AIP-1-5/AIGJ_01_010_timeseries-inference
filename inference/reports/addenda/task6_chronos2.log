@@ -1,0 +1,5 @@
+W1022 10:46:03.663000 6661 torch/distributed/elastic/multiprocessing/redirects.py:35] NOTE: Redirects are currently not supported in MacOs.
+Loading weights:   0%|          | 0/170 [00:00<?, ?it/s]Loading weights: 100%|██████████| 170/170 [00:00<00:00, 10072.92it/s]
+val Chronos-2 (CO₂ 만) {'5분': 10.310871124267578, '15분': 20.0264835357666, '30분': 34.29252624511719, '60분': 48.831077575683594, 'cover60': 76.2214983713355, 'ms_per_sample': 11.49450625969455}
+/Users/parksuyeon/.local/share/uv/python/cpython-3.11.17-macos-aarch64-none/lib/python3.11/multiprocessing/resource_tracker.py:254: UserWarning: resource_tracker: There appear to be 1 leaked semaphore objects to clean up at shutdown
+  warnings.warn('resource_tracker: There appear to be %d '

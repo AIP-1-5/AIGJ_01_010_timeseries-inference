@@ -1,0 +1,2426 @@
+{
+ "period": {
+  "train": "2026-09-14 00:00:00+09:00~2026-10-04 23:55:00+09:00",
+  "val": "2026-10-05 00:00:00+09:00~2026-10-11 23:55:00+09:00",
+  "test": "2026-10-12 00:00:00+09:00~2026-10-18 23:55:00+09:00"
+ },
+ "injected_val_drifts": [
+  {
+   "space": "강의실1",
+   "start": "2026-10-05 20:35:00+09:00",
+   "hours": 6.5
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-09 16:40:00+09:00",
+   "hours": 9.083333333333334
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-11 23:20:00+09:00",
+   "hours": 0.5833333333333334
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-08 04:20:00+09:00",
+   "hours": 11.5
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-10 09:35:00+09:00",
+   "hours": 10.916666666666666
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-11 10:45:00+09:00",
+   "hours": 7.333333333333333
+  },
+  {
+   "space": "회의실",
+   "start": "2026-10-05 15:05:00+09:00",
+   "hours": 6.916666666666667
+  },
+  {
+   "space": "회의실",
+   "start": "2026-10-09 18:10:00+09:00",
+   "hours": 6.333333333333333
+  },
+  {
+   "space": "회의실",
+   "start": "2026-10-11 23:15:00+09:00",
+   "hours": 0.6666666666666666
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-07 13:05:00+09:00",
+   "hours": 6.916666666666667
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-08 22:05:00+09:00",
+   "hours": 10.416666666666666
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-11 09:50:00+09:00",
+   "hours": 7.916666666666667
+  }
+ ],
+ "drift_test_events_default": [
+  {
+   "space": "강의실1",
+   "start": "2026-10-12 23:35:00+09:00",
+   "end": "2026-10-12 23:40:00+09:00",
+   "fault": "영점 틀어짐"
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-13 00:20:00+09:00",
+   "end": "2026-10-13 01:15:00+09:00",
+   "fault": "영점 틀어짐"
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-15 04:10:00+09:00",
+   "end": "2026-10-15 04:10:00+09:00",
+   "fault": "헛경보"
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-13 00:15:00+09:00",
+   "end": "2026-10-13 06:55:00+09:00",
+   "fault": "영점 틀어짐"
+  }
+ ],
+ "drift_test_events_pick": [
+  {
+   "space": "강의실1",
+   "start": "2026-10-12 21:05:00+09:00",
+   "end": "2026-10-13 01:15:00+09:00",
+   "fault": "영점 틀어짐"
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-15 04:10:00+09:00",
+   "end": "2026-10-15 04:10:00+09:00",
+   "fault": "헛경보"
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-12 23:30:00+09:00",
+   "end": "2026-10-13 06:55:00+09:00",
+   "fault": "영점 틀어짐"
+  }
+ ],
+ "drift_sweep": [
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 10,
+   "min_empty_h": 1.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 10,
+   "min_empty_h": 1.5,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 10,
+   "min_empty_h": 3.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 15,
+   "min_empty_h": 1.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 15,
+   "min_empty_h": 1.5,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 15,
+   "min_empty_h": 3.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 25,
+   "min_empty_h": 1.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 25,
+   "min_empty_h": 1.5,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 25,
+   "min_empty_h": 3.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 127.5,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    180.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 40,
+   "min_empty_h": 1.0,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 105.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 40,
+   "min_empty_h": 1.5,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 105.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 40,
+   "min_empty_h": 3.0,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 105.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 60,
+   "min_empty_h": 1.0,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 15.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 60,
+   "min_empty_h": 1.5,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 15.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 420.0,
+   "above": 500.0,
+   "rise_ppm": 60,
+   "min_empty_h": 3.0,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 15.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 10,
+   "min_empty_h": 1.0,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 10,
+   "min_empty_h": 1.5,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 10,
+   "min_empty_h": 3.0,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 15,
+   "min_empty_h": 1.0,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 15,
+   "min_empty_h": 1.5,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 15,
+   "min_empty_h": 3.0,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 25,
+   "min_empty_h": 1.0,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 25,
+   "min_empty_h": 1.5,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 25,
+   "min_empty_h": 3.0,
+   "val_det": 9,
+   "val_tot": 12,
+   "val_delay_med": 110.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    135.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 40,
+   "min_empty_h": 1.0,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 105.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 40,
+   "min_empty_h": 1.5,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 105.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 40,
+   "min_empty_h": 3.0,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 105.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 60,
+   "min_empty_h": 1.0,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 10.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 60,
+   "min_empty_h": 1.5,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 10.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 400.0,
+   "above": 480.0,
+   "rise_ppm": 60,
+   "min_empty_h": 3.0,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 10.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 10,
+   "min_empty_h": 1.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 10,
+   "min_empty_h": 1.5,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 10,
+   "min_empty_h": 3.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    157.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 15,
+   "min_empty_h": 1.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 15,
+   "min_empty_h": 1.5,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 15,
+   "min_empty_h": 3.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    192.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 25,
+   "min_empty_h": 1.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 25,
+   "min_empty_h": 1.5,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 25,
+   "min_empty_h": 3.0,
+   "val_det": 8,
+   "val_tot": 12,
+   "val_delay_med": 160.0,
+   "val_fa_day": 0.0,
+   "test_det": 2,
+   "test_tot": 2,
+   "test_delays": [
+    307.0,
+    235.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 40,
+   "min_empty_h": 1.0,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 145.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 40,
+   "min_empty_h": 1.5,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 145.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 40,
+   "min_empty_h": 3.0,
+   "val_det": 6,
+   "val_tot": 12,
+   "val_delay_med": 145.0,
+   "val_fa_day": 0.0,
+   "test_det": 1,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    375.0
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 60,
+   "min_empty_h": 1.0,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 20.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 60,
+   "min_empty_h": 1.5,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 20.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  },
+  {
+   "c_out": 450.0,
+   "above": 530.0,
+   "rise_ppm": 60,
+   "min_empty_h": 3.0,
+   "val_det": 3,
+   "val_tot": 12,
+   "val_delay_med": 20.0,
+   "val_fa_day": 0.0,
+   "test_det": 0,
+   "test_tot": 2,
+   "test_delays": [
+    NaN,
+    NaN
+   ],
+   "test_fa_day": 0.14285714285714285
+  }
+ ],
+ "drift_pick": {
+  "c_out": 400.0,
+  "above": 480.0,
+  "rise_ppm": 10,
+  "min_empty_h": 1.0,
+  "val_det": 9,
+  "val_tot": 12,
+  "val_delay_med": 110.0,
+  "val_fa_day": 0.0,
+  "test_det": 2,
+  "test_tot": 2,
+  "test_delays": [
+   157.0,
+   135.0
+  ],
+  "test_fa_day": 0.14285714285714285
+ },
+ "drift_default_val_detail": [
+  {
+   "space": "강의실1",
+   "start": "2026-10-05 20:35:00+09:00",
+   "hit": true,
+   "delay": 95.0
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-09 16:40:00+09:00",
+   "hit": true,
+   "delay": 290.0
+  },
+  {
+   "space": "강의실1",
+   "start": "2026-10-11 23:20:00+09:00",
+   "hit": true,
+   "delay": 15.0
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-08 04:20:00+09:00",
+   "hit": false,
+   "delay": NaN
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-10 09:35:00+09:00",
+   "hit": true,
+   "delay": 635.0
+  },
+  {
+   "space": "강의실2",
+   "start": "2026-10-11 10:45:00+09:00",
+   "hit": false,
+   "delay": NaN
+  },
+  {
+   "space": "회의실",
+   "start": "2026-10-05 15:05:00+09:00",
+   "hit": true,
+   "delay": 305.0
+  },
+  {
+   "space": "회의실",
+   "start": "2026-10-09 18:10:00+09:00",
+   "hit": true,
+   "delay": 110.0
+  },
+  {
+   "space": "회의실",
+   "start": "2026-10-11 23:15:00+09:00",
+   "hit": true,
+   "delay": 15.0
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-07 13:05:00+09:00",
+   "hit": false,
+   "delay": NaN
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-08 22:05:00+09:00",
+   "hit": true,
+   "delay": 145.0
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-11 09:50:00+09:00",
+   "hit": false,
+   "delay": NaN
+  }
+ ],
+ "orig_resid_thr": {
+  "강의실1": 3.6780784194412104,
+  "강의실2": 4.240949836247386,
+  "회의실": 5.187913681862512,
+  "라운지": 4.600704304431103
+ },
+ "adopted_test": {
+  "detected": 12,
+  "total": 15,
+  "fa": 7,
+  "fa_day": 1.0
+ },
+ "adopted_per_type": [
+  {
+   "type": "값 고정",
+   "탐지": 3,
+   "전체": 3,
+   "지연평균": 108.33333333333333,
+   "지연중앙값": 142.0
+  },
+  {
+   "type": "냉방 정지",
+   "탐지": 1,
+   "전체": 2,
+   "지연평균": 20.0,
+   "지연중앙값": 20.0
+  },
+  {
+   "type": "영점 틀어짐",
+   "탐지": 2,
+   "전체": 2,
+   "지연평균": 243.5,
+   "지연중앙값": 243.5
+  },
+  {
+   "type": "튄 값",
+   "탐지": 5,
+   "전체": 6,
+   "지연평균": 0.0,
+   "지연중앙값": 0.0
+  },
+  {
+   "type": "환기 정지",
+   "탐지": 1,
+   "전체": 2,
+   "지연평균": 240.0,
+   "지연중앙값": 240.0
+  }
+ ],
+ "adopted_per_fault": [
+  {
+   "type": "환기 정지",
+   "space": "강의실1",
+   "metric": "co2",
+   "hit": false,
+   "delay": NaN,
+   "cause": null
+  },
+  {
+   "type": "값 고정",
+   "space": "회의실",
+   "metric": "co2",
+   "hit": true,
+   "delay": 142.0,
+   "cause": "co2"
+  },
+  {
+   "type": "영점 틀어짐",
+   "space": "강의실1",
+   "metric": "co2",
+   "hit": true,
+   "delay": 307.0,
+   "cause": "co2"
+  },
+  {
+   "type": "영점 틀어짐",
+   "space": "강의실2",
+   "metric": "co2",
+   "hit": true,
+   "delay": 180.0,
+   "cause": "co2"
+  },
+  {
+   "type": "냉방 정지",
+   "space": "강의실1",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 20.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "환기 정지",
+   "space": "회의실",
+   "metric": "co2",
+   "hit": true,
+   "delay": 240.0,
+   "cause": "co2"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실2",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실1",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실1",
+   "metric": "co2",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "co2"
+  },
+  {
+   "type": "냉방 정지",
+   "space": "강의실2",
+   "metric": "temperature",
+   "hit": false,
+   "delay": NaN,
+   "cause": null
+  },
+  {
+   "type": "값 고정",
+   "space": "회의실",
+   "metric": "humidity",
+   "hit": true,
+   "delay": 161.0,
+   "cause": "humidity"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실2",
+   "metric": "co2",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "co2"
+  },
+  {
+   "type": "튄 값",
+   "space": "라운지",
+   "metric": "co2",
+   "hit": false,
+   "delay": NaN,
+   "cause": null
+  },
+  {
+   "type": "값 고정",
+   "space": "라운지",
+   "metric": "co2",
+   "hit": true,
+   "delay": 22.0,
+   "cause": "co2"
+  },
+  {
+   "type": "튄 값",
+   "space": "회의실",
+   "metric": "co2",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "co2"
+  }
+ ],
+ "adopted_val_fa_day": 0.14285714285714285,
+ "rules_only_val_fa_day": 0.0,
+ "cause_acc": {
+  "match": 12,
+  "n": 12,
+  "by_type": [
+   {
+    "type": "값 고정",
+    "sum": 3,
+    "size": 3
+   },
+   {
+    "type": "냉방 정지",
+    "sum": 1,
+    "size": 1
+   },
+   {
+    "type": "영점 틀어짐",
+    "sum": 2,
+    "size": 2
+   },
+   {
+    "type": "튄 값",
+    "sum": 5,
+    "size": 5
+   },
+   {
+    "type": "환기 정지",
+    "sum": 1,
+    "size": 1
+   }
+  ]
+ },
+ "injected_val_hvac": [
+  {
+   "type": "냉방 정지",
+   "space": "강의실1",
+   "metric": "temperature",
+   "start": "2026-10-06 13:00:00+09:00",
+   "end": "2026-10-06 17:00:00+09:00"
+  },
+  {
+   "type": "환기 정지",
+   "space": "강의실1",
+   "metric": "co2",
+   "start": "2026-10-08 09:00:00+09:00",
+   "end": "2026-10-08 12:00:00+09:00"
+  },
+  {
+   "type": "냉방 정지",
+   "space": "강의실2",
+   "metric": "temperature",
+   "start": "2026-10-05 09:00:00+09:00",
+   "end": "2026-10-05 12:00:00+09:00"
+  },
+  {
+   "type": "환기 정지",
+   "space": "강의실2",
+   "metric": "co2",
+   "start": "2026-10-06 13:00:00+09:00",
+   "end": "2026-10-06 17:00:00+09:00"
+  },
+  {
+   "type": "환기 정지",
+   "space": "회의실",
+   "metric": "co2",
+   "start": "2026-10-07 13:00:00+09:00",
+   "end": "2026-10-07 17:00:00+09:00"
+  },
+  {
+   "type": "냉방 정지",
+   "space": "회의실",
+   "metric": "temperature",
+   "start": "2026-10-09 09:00:00+09:00",
+   "end": "2026-10-09 12:00:00+09:00"
+  }
+ ],
+ "resid_sweep": [
+  {
+   "k": 1,
+   "z": 1.5,
+   "val_inj_det": 18,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 12,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 27.857142857142858,
+   "val_fa_day_resid": 27.857142857142858,
+   "test_det_combo": 14,
+   "test_fa_day_combo": 27.428571428571427,
+   "test_det_resid": 14,
+   "test_fa_day_resid": 27.428571428571427,
+   "test_resid_types": {
+    "튄 값": 6,
+    "값 고정": 3,
+    "영점 틀어짐": 2,
+    "냉방 정지": 2,
+    "환기 정지": 1
+   }
+  },
+  {
+   "k": 1,
+   "z": 2.0,
+   "val_inj_det": 18,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 12,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 14.428571428571429,
+   "val_fa_day_resid": 14.428571428571429,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 13.714285714285714,
+   "test_det_resid": 11,
+   "test_fa_day_resid": 13.714285714285714,
+   "test_resid_types": {
+    "튄 값": 5,
+    "영점 틀어짐": 2,
+    "냉방 정지": 2,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 1,
+   "z": 3.0,
+   "val_inj_det": 13,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 7,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 8.571428571428571,
+   "val_fa_day_resid": 8.571428571428571,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 7.285714285714286,
+   "test_det_resid": 11,
+   "test_fa_day_resid": 7.285714285714286,
+   "test_resid_types": {
+    "튄 값": 5,
+    "영점 틀어짐": 2,
+    "냉방 정지": 2,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 1,
+   "z": 4.0,
+   "val_inj_det": 12,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 6,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 6.0,
+   "val_fa_day_resid": 6.0,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 5.142857142857143,
+   "test_det_resid": 10,
+   "test_fa_day_resid": 5.142857142857143,
+   "test_resid_types": {
+    "튄 값": 5,
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 1,
+   "z": 5.0,
+   "val_inj_det": 9,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 4,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 4.285714285714286,
+   "val_fa_day_resid": 4.285714285714286,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 3.2857142857142856,
+   "test_det_resid": 9,
+   "test_fa_day_resid": 3.2857142857142856,
+   "test_resid_types": {
+    "튄 값": 5,
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 1,
+   "z": 6.0,
+   "val_inj_det": 6,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 4,
+   "val_inj_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 2,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 2.4285714285714284,
+   "val_fa_day_resid": 2.4285714285714284,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 1.8571428571428572,
+   "test_det_resid": 9,
+   "test_fa_day_resid": 1.8571428571428572,
+   "test_resid_types": {
+    "튄 값": 5,
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 1,
+   "z": 8.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.2857142857142857,
+   "val_fa_day_resid": 0.2857142857142857,
+   "test_det_combo": 11,
+   "test_fa_day_combo": 1.2857142857142858,
+   "test_det_resid": 7,
+   "test_fa_day_resid": 1.2857142857142858,
+   "test_resid_types": {
+    "튄 값": 4,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 1.5,
+   "val_inj_det": 16,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 10,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 10.571428571428571,
+   "val_fa_day_resid": 10.571428571428571,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 8.857142857142858,
+   "test_det_resid": 8,
+   "test_fa_day_resid": 8.857142857142858,
+   "test_resid_types": {
+    "값 고정": 2,
+    "영점 틀어짐": 2,
+    "냉방 정지": 2,
+    "환기 정지": 1,
+    "튄 값": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 2.0,
+   "val_inj_det": 14,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 8,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 9.0,
+   "val_fa_day_resid": 9.0,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 7.142857142857143,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 7.142857142857143,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 3.0,
+   "val_inj_det": 11,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 6,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 5.857142857142857,
+   "val_fa_day_resid": 5.857142857142857,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 4.0,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 4.0,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 4.0,
+   "val_inj_det": 11,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 6,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 3.2857142857142856,
+   "val_fa_day_resid": 3.2857142857142856,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 2.5714285714285716,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 2.5714285714285716,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 5.0,
+   "val_inj_det": 6,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 4,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 2.0,
+   "val_fa_day_resid": 2.0,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 2.0,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 2.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 6.0,
+   "val_inj_det": 4,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 2,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.8571428571428571,
+   "val_fa_day_resid": 0.8571428571428571,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 1.5714285714285714,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 1.5714285714285714,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 2,
+   "z": 8.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.14285714285714285,
+   "val_fa_day_resid": 0.14285714285714285,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.42857142857142855,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.42857142857142855,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 1.5,
+   "val_inj_det": 15,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 9,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 7.0,
+   "val_fa_day_resid": 7.0,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 5.428571428571429,
+   "test_det_resid": 6,
+   "test_fa_day_resid": 5.428571428571429,
+   "test_resid_types": {
+    "영점 틀어짐": 2,
+    "냉방 정지": 2,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 2.0,
+   "val_inj_det": 14,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 8,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 5.0,
+   "val_fa_day_resid": 5.0,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 3.5714285714285716,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 3.5714285714285716,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 3.0,
+   "val_inj_det": 11,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 6,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 2.5714285714285716,
+   "val_fa_day_resid": 2.5714285714285716,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 1.8571428571428572,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 1.8571428571428572,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 4.0,
+   "val_inj_det": 7,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 5,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 1.0,
+   "val_fa_day_resid": 1.0,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 1.2857142857142858,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 1.2857142857142858,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 5.0,
+   "val_inj_det": 6,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 4,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.2857142857142857,
+   "val_fa_day_resid": 0.2857142857142857,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 0.14285714285714285,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 0.14285714285714285,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 6.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.14285714285714285,
+   "val_fa_day_resid": 0.14285714285714285,
+   "test_det_combo": 11,
+   "test_fa_day_combo": 0.14285714285714285,
+   "test_det_resid": 3,
+   "test_fa_day_resid": 0.14285714285714285,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 3,
+   "z": 8.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.14285714285714285,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.14285714285714285,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 1.5,
+   "val_inj_det": 15,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 6,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 9,
+    "환기 정지": 3
+   },
+   "val_fa_day_combo": 3.2857142857142856,
+   "val_fa_day_resid": 3.2857142857142856,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 2.2857142857142856,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 2.2857142857142856,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 2.0,
+   "val_inj_det": 13,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 8,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 1.8571428571428572,
+   "val_fa_day_resid": 1.8571428571428572,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 1.5714285714285714,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 1.5714285714285714,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 3.0,
+   "val_inj_det": 11,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 6,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.8571428571428571,
+   "val_fa_day_resid": 0.8571428571428571,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 0.2857142857142857,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 0.2857142857142857,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 4.0,
+   "val_inj_det": 7,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 5,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.42857142857142855,
+   "val_fa_day_resid": 0.42857142857142855,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 0.2857142857142857,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 0.2857142857142857,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 5.0,
+   "val_inj_det": 6,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 4,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.2857142857142857,
+   "val_fa_day_resid": 0.2857142857142857,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 0.14285714285714285,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 0.14285714285714285,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 6.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 11,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 3,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 4,
+   "z": 8.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 1.5,
+   "val_inj_det": 14,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 9,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.5714285714285714,
+   "val_fa_day_resid": 0.5714285714285714,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 0.42857142857142855,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 0.42857142857142855,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 2.0,
+   "val_inj_det": 12,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 7,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.42857142857142855,
+   "val_fa_day_resid": 0.42857142857142855,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 0.14285714285714285,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 0.14285714285714285,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 3.0,
+   "val_inj_det": 7,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 3,
+   "val_inj_types": {
+    "냉방 정지": 1,
+    "영점 틀어짐": 4,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.14285714285714285,
+   "val_fa_day_resid": 0.14285714285714285,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 4.0,
+   "val_inj_det": 5,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 3,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 12,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 4,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 5.0,
+   "val_inj_det": 4,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 2,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 11,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 3,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 6.0,
+   "val_inj_det": 3,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 6,
+   "z": 8.0,
+   "val_inj_det": 2,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 1,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 1
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 1.5,
+   "val_inj_det": 11,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 6,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.42857142857142855,
+   "val_fa_day_resid": 0.42857142857142855,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 2.0,
+   "val_inj_det": 10,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 5,
+   "val_inj_types": {
+    "냉방 정지": 3,
+    "영점 틀어짐": 5,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.2857142857142857,
+   "val_fa_day_resid": 0.2857142857142857,
+   "test_det_combo": 13,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 5,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "냉방 정지": 2,
+    "영점 틀어짐": 1,
+    "환기 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 3.0,
+   "val_inj_det": 6,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 4,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 11,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 3,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 4.0,
+   "val_inj_det": 5,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 3,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 11,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 3,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "냉방 정지": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 5.0,
+   "val_inj_det": 4,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 2,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 2,
+    "환기 정지": 2
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 6.0,
+   "val_inj_det": 2,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 1,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 1
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 2,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "영점 틀어짐": 1,
+    "값 고정": 1
+   }
+  },
+  {
+   "k": 8,
+   "z": 8.0,
+   "val_inj_det": 1,
+   "val_inj_tot": 18,
+   "val_inj_hvac": 0,
+   "val_inj_types": {
+    "냉방 정지": 0,
+    "영점 틀어짐": 1,
+    "환기 정지": 0
+   },
+   "val_fa_day_combo": 0.0,
+   "val_fa_day_resid": 0.0,
+   "test_det_combo": 10,
+   "test_fa_day_combo": 0.0,
+   "test_det_resid": 1,
+   "test_fa_day_resid": 0.0,
+   "test_resid_types": {
+    "값 고정": 1
+   }
+  }
+ ],
+ "resid_pick": {
+  "k": 6,
+  "z": 1.5
+ },
+ "pick_test": {
+  "detected": 13,
+  "total": 15,
+  "fa": 3,
+  "fa_day": 0.42857142857142855
+ },
+ "pick_per_type": [
+  {
+   "type": "값 고정",
+   "det": 3,
+   "tot": 3,
+   "mean": 111.66666666666667,
+   "med": 142.0
+  },
+  {
+   "type": "냉방 정지",
+   "det": 2,
+   "tot": 2,
+   "mean": 40.0,
+   "med": 40.0
+  },
+  {
+   "type": "영점 틀어짐",
+   "det": 2,
+   "tot": 2,
+   "mean": 243.5,
+   "med": 243.5
+  },
+  {
+   "type": "튄 값",
+   "det": 5,
+   "tot": 6,
+   "mean": 0.0,
+   "med": 0.0
+  },
+  {
+   "type": "환기 정지",
+   "det": 1,
+   "tot": 2,
+   "mean": 105.0,
+   "med": 105.0
+  }
+ ],
+ "pick_per_fault": [
+  {
+   "type": "환기 정지",
+   "space": "강의실1",
+   "metric": "co2",
+   "hit": false,
+   "delay": NaN,
+   "cause": null
+  },
+  {
+   "type": "값 고정",
+   "space": "회의실",
+   "metric": "co2",
+   "hit": true,
+   "delay": 142.0,
+   "cause": "co2"
+  },
+  {
+   "type": "영점 틀어짐",
+   "space": "강의실1",
+   "metric": "co2",
+   "hit": true,
+   "delay": 307.0,
+   "cause": "co2"
+  },
+  {
+   "type": "영점 틀어짐",
+   "space": "강의실2",
+   "metric": "co2",
+   "hit": true,
+   "delay": 180.0,
+   "cause": "co2"
+  },
+  {
+   "type": "냉방 정지",
+   "space": "강의실1",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 30.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "환기 정지",
+   "space": "회의실",
+   "metric": "co2",
+   "hit": true,
+   "delay": 105.0,
+   "cause": "co2"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실2",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실1",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실1",
+   "metric": "co2",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "co2"
+  },
+  {
+   "type": "냉방 정지",
+   "space": "강의실2",
+   "metric": "temperature",
+   "hit": true,
+   "delay": 50.0,
+   "cause": "temperature"
+  },
+  {
+   "type": "값 고정",
+   "space": "회의실",
+   "metric": "humidity",
+   "hit": true,
+   "delay": 161.0,
+   "cause": "humidity"
+  },
+  {
+   "type": "튄 값",
+   "space": "강의실2",
+   "metric": "co2",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "co2"
+  },
+  {
+   "type": "튄 값",
+   "space": "라운지",
+   "metric": "co2",
+   "hit": false,
+   "delay": NaN,
+   "cause": null
+  },
+  {
+   "type": "값 고정",
+   "space": "라운지",
+   "metric": "co2",
+   "hit": true,
+   "delay": 32.0,
+   "cause": "co2"
+  },
+  {
+   "type": "튄 값",
+   "space": "회의실",
+   "metric": "co2",
+   "hit": true,
+   "delay": 0.0,
+   "cause": "co2"
+  }
+ ],
+ "pick_cause_acc": {
+  "match": 13,
+  "n": 13
+ },
+ "pick_fa_events": [
+  {
+   "space": "강의실2",
+   "start": "2026-10-15 15:30:00+09:00",
+   "end": "2026-10-15 15:39:00+09:00",
+   "cause": "co2"
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-16 12:30:00+09:00",
+   "end": "2026-10-16 12:39:00+09:00",
+   "cause": "temperature"
+  },
+  {
+   "space": "라운지",
+   "start": "2026-10-16 16:25:00+09:00",
+   "end": "2026-10-16 16:29:00+09:00",
+   "cause": "temperature"
+  }
+ ],
+ "orig_thr_val_inj": [
+  {
+   "type": "냉방 정지",
+   "sum": 0,
+   "size": 3
+  },
+  {
+   "type": "영점 틀어짐",
+   "sum": 4,
+   "size": 12
+  },
+  {
+   "type": "환기 정지",
+   "sum": 2,
+   "size": 3
+  }
+ ]
+}
