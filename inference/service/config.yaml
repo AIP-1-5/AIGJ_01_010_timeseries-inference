@@ -8,7 +8,7 @@ http_host: 0.0.0.0
 http_port: 8080
 
 mqtt:
-  enabled: false                 # 공용 브로커에 발행하려면 true (팀 확인 후)
+  enabled: true                  # 2026-10-22 발행 시작 (수연 승인)
   host: <교육장-MQTT-브로커>
   port: 1883
   prefix: team5b/inference       # team5b/inference/<공간>, .../<공간>/alarm, .../_status

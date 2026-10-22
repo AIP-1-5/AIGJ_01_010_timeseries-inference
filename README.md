@@ -20,7 +20,7 @@
 | 5 상태 | 규칙보다 좋음 · 환기 경보 재현율 85% | 사용 여부 F1 85.8 vs 규칙 79.1 · **환기 재현율 97.4%** | ✅ |
 | 6 사전학습 | 정확도·구간·시간·메모리로 판단 | Chronos-Bolt: 합성에선 최하위, **내 실데이터에선 1등(36.0 vs GRU 39.3 vs 현재값 42.0ppm)**, 보드 92ms | ✅ |
 | 7 엣지 | 변환 후 CO₂ 차이 1ppm 이하 · 측정 조건 기록 | ONNX Runtime **0.22ms** (PyTorch CPU 62ms, 약 280배), 차이 0.0001ppm | ✅ · TensorRT는 보드에 설치 대기 |
-| 8 서비스 | 12시간 무중단 · 끊김 경보 · 조회 API · 형식 문서 | **12시간 713주기 실패 0**, 평균 0.95초 · 수집기 정지 시험에서 3.5분 만에 '데이터 끊김' 경보 · 헛경보 0 | ✅ (MQTT 발행은 팀 확인 후 켬) |
+| 8 서비스 | 12시간 무중단 · 끊김 경보 · 조회 API · 형식 문서 | **12시간 713주기 실패 0**, 평균 0.95초 · 수집기 정지 시험에서 3.5분 만에 '데이터 끊김' 경보 · 헛경보 0 | ✅ (MQTT 발행 가동, 10-22 11:20~) |
 
 ## 구성
 
@@ -168,7 +168,7 @@ bash tools/gap_test.sh                                # 장애 시험: 수집기
 
 - 매분: 5분 칸 전처리(학습과 같은 `prep.py`, 막 시작된 칸은 안 씀) → 공간별 60분 예측·"N분 뒤 1,000ppm 초과" 경보 → 이상·사용 여부·환기 판단 → `results.db` 저장
 - 모델 파일이 바뀌면 재시작 없이 다시 읽음 (주기적 재학습 모델을 무중단 교체)
-- 같은 경보는 1시간에 한 번 · MQTT retain 발행 + LWT (설정 `mqtt.enabled`, 팀 확인 전까지 꺼 둠)
+- 같은 경보는 1시간에 한 번 · MQTT retain 발행 + LWT (10-22 11:20 가동, 수신 확인 `inference/reports/mqtt_publish_check.txt`)
 - 심화 제어: 1,000ppm 초과 시간 288 → 159분/주 (환기 시간은 1,350 → 2,410분)
 
 보고서: [`final_report.md` §8](inference/reports/final_report.md), [`task8_control_report.md`](inference/reports/task8_control_report.md), 기록 [`service_12h_summary.json`](inference/reports/service_12h_summary.json), [`gap_test.log`](inference/reports/gap_test.log)
