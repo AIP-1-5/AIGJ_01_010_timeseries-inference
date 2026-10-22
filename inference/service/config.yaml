@@ -1,0 +1,15 @@
+# 과제 8 상시 추론 서비스 설정
+collector_db: ../ts-collector/data/sensors.db     # 수집기(과제 1) DB (읽기 전용으로 엶)
+results_db: data/service/results.db               # 서비스 결과·주기 기록·경보
+model_dir: models
+env_file: ../ts-collector/.env                    # MQTT 아이디/비밀번호 (수집기와 같은 파일)
+interval_sec: 60
+http_host: 0.0.0.0
+http_port: 8080
+
+mqtt:
+  enabled: false                 # 공용 브로커에 발행하려면 true (팀 확인 후)
+  host: <교육장-MQTT-브로커>
+  port: 1883
+  prefix: team5b/inference       # team5b/inference/<공간>, .../<공간>/alarm, .../_status
+  client_id: team5b-inference

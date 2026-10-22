@@ -1,0 +1,33 @@
+{
+ "lookback": 24,
+ "horizon": 12,
+ "n_in": 9,
+ "features": [
+  "co2",
+  "temperature",
+  "humidity"
+ ],
+ "targets": [
+  "co2",
+  "temperature"
+ ],
+ "test_mae_60min": {
+  "co2": 23.09677505493164,
+  "temperature": 0.0891430452466011
+ },
+ "test_mae_persistence_60min": {
+  "co2": 40.897178649902344,
+  "temperature": 0.3409724533557892
+ },
+ "resid_sd_15min_norm": {
+  "co2": 0.1665465384721756,
+  "temperature": 0.07778795808553696
+ },
+ "model_name": "service_gru_real (교육장 실데이터 2026-09-27~ 학습)",
+ "trained_on": "real InfluxDB 2026-09-27~10-21 (train 70%)",
+ "real_test_mae_60min_co2": {
+  "persistence": 33.4,
+  "model": 30.6,
+  "synthetic_model": 77.1
+ }
+}

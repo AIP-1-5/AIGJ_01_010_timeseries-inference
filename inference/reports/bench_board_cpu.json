@@ -1,0 +1,179 @@
+{
+ "host": "team5-b",
+ "machine": "aarch64",
+ "python": "3.12.3",
+ "time": "2026-10-21 10:25:55",
+ "warmup": 50,
+ "iters": 500,
+ "rows": [
+  {
+   "model": "GRU",
+   "runtime": "PyTorch CPU",
+   "batch": 1,
+   "mean_ms": 61.96269691831549,
+   "p95_ms": 71.67925839967211,
+   "p99_ms": 84.41523486631905,
+   "power_mw_mean": 8542.55487804878,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3622
+  },
+  {
+   "model": "GRU",
+   "runtime": "PyTorch CPU",
+   "batch": 4,
+   "mean_ms": 39.721449649805436,
+   "p95_ms": 49.77700423914938,
+   "p99_ms": 58.929973989870625,
+   "power_mw_mean": 8659.095238095239,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3621
+  },
+  {
+   "model": "GRU",
+   "runtime": "ONNX Runtime CPU",
+   "batch": 1,
+   "mean_ms": 0.22380177801824175,
+   "p95_ms": 0.22403600451070813,
+   "p99_ms": 0.24049136540270408,
+   "max_co2_diff_ppm_vs_torch": 3.2659616408636793e-05
+  },
+  {
+   "model": "GRU",
+   "runtime": "ONNX Runtime CPU",
+   "batch": 4,
+   "mean_ms": 1.014481934136711,
+   "p95_ms": 4.523214202345116,
+   "p99_ms": 8.251318980910582,
+   "power_mw_mean": 9843.5,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3608,
+   "max_co2_diff_ppm_vs_torch": 0.00010886538802878931
+  },
+  {
+   "model": "LSTM",
+   "runtime": "PyTorch CPU",
+   "batch": 1,
+   "mean_ms": 23.2275762083882,
+   "p95_ms": 26.62009174455305,
+   "p99_ms": 47.79164397914426,
+   "power_mw_mean": 8630.016393442624,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3616
+  },
+  {
+   "model": "LSTM",
+   "runtime": "PyTorch CPU",
+   "batch": 4,
+   "mean_ms": 41.452152508310974,
+   "p95_ms": 47.07260075228982,
+   "p99_ms": 57.989372172451084,
+   "power_mw_mean": 8515.290909090909,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3623
+  },
+  {
+   "model": "LSTM",
+   "runtime": "ONNX Runtime CPU",
+   "batch": 1,
+   "mean_ms": 0.48166780822793953,
+   "p95_ms": 4.258909948839573,
+   "p99_ms": 4.276322162768338,
+   "power_mw_mean": 9273.0,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3621,
+   "max_co2_diff_ppm_vs_torch": 2.0412260710145347e-05
+  },
+  {
+   "model": "LSTM",
+   "runtime": "ONNX Runtime CPU",
+   "batch": 4,
+   "mean_ms": 0.6378350144950673,
+   "p95_ms": 4.320242207904812,
+   "p99_ms": 4.364693127135979,
+   "power_mw_mean": 9941.0,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3621,
+   "max_co2_diff_ppm_vs_torch": 7.620577525813133e-05
+  },
+  {
+   "model": "TCN",
+   "runtime": "PyTorch CPU",
+   "batch": 1,
+   "mean_ms": 3.437132901715813,
+   "p95_ms": 4.2471890032175,
+   "p99_ms": 4.960199493507388,
+   "power_mw_mean": 8865.111111111111,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3625
+  },
+  {
+   "model": "TCN",
+   "runtime": "PyTorch CPU",
+   "batch": 4,
+   "mean_ms": 8.531798876385437,
+   "p95_ms": 10.225284601619933,
+   "p99_ms": 12.094533028721342,
+   "power_mw_mean": 8549.5,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3629
+  },
+  {
+   "model": "TCN",
+   "runtime": "ONNX Runtime CPU",
+   "batch": 1,
+   "mean_ms": 0.2573583018966019,
+   "p95_ms": 0.14951175471651348,
+   "p99_ms": 4.15921551611973,
+   "max_co2_diff_ppm_vs_torch": 2.1773077605757862e-05
+  },
+  {
+   "model": "TCN",
+   "runtime": "ONNX Runtime CPU",
+   "batch": 4,
+   "mean_ms": 0.7936268461926375,
+   "p95_ms": 4.410556206858018,
+   "p99_ms": 4.567795341718011,
+   "power_mw_mean": 9764.5,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3630,
+   "max_co2_diff_ppm_vs_torch": 8.709231042303145e-05
+  },
+  {
+   "model": "chronos-bolt-tiny (ctx 24h)",
+   "runtime": "PyTorch CPU",
+   "batch": 1,
+   "mean_ms": 91.94155339934514,
+   "p95_ms": 105.98728964832844,
+   "p99_ms": 116.91369521286101,
+   "power_mw_mean": 8614.020325203252,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3761
+  },
+  {
+   "model": "chronos-bolt-tiny (ctx 24h)",
+   "runtime": "PyTorch CPU",
+   "batch": 4,
+   "mean_ms": 88.64570664192433,
+   "p95_ms": 99.10191505914548,
+   "p99_ms": 123.4235357775469,
+   "power_mw_mean": 8619.617021276596,
+   "gpu_util_mean": 0.0,
+   "ram_mb_max": 3751
+  }
+ ],
+ "nvpmodel": "pmode:0002",
+ "torch": "2.14.1+cpu",
+ "cuda": false,
+ "onnxruntime": "1.31.0",
+ "ort_providers": [
+  "AzureExecutionProvider",
+  "CPUExecutionProvider"
+ ],
+ "idle": {
+  "power_mw_mean": 6708.75,
+  "gpu_util_mean": 0.0,
+  "ram_mb_max": 3630
+ },
+ "chronos_rss_increase_mb": 67.53125,
+ "max_rss_mb": 488.97265625
+}

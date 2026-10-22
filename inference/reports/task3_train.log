@@ -1,0 +1,195 @@
+{'train': 23636, 'val': 7364, 'test': 6653}
+== GRU
+  [gru] epoch  1 val CO2 MAE 24.86
+  [gru] epoch  2 val CO2 MAE 20.93
+  [gru] epoch  3 val CO2 MAE 18.54
+  [gru] epoch  4 val CO2 MAE 18.69
+  [gru] epoch  5 val CO2 MAE 17.28
+  [gru] epoch  6 val CO2 MAE 17.09
+  [gru] epoch  7 val CO2 MAE 17.72
+  [gru] epoch  8 val CO2 MAE 17.06
+  [gru] epoch  9 val CO2 MAE 17.73
+  [gru] epoch 10 val CO2 MAE 17.03
+  [gru] epoch 11 val CO2 MAE 15.96
+  [gru] epoch 12 val CO2 MAE 15.70
+  [gru] epoch 13 val CO2 MAE 15.89
+  [gru] epoch 14 val CO2 MAE 15.98
+  [gru] epoch 15 val CO2 MAE 15.76
+  [gru] epoch 16 val CO2 MAE 15.35
+  [gru] epoch 17 val CO2 MAE 15.08
+  [gru] epoch 18 val CO2 MAE 15.17
+  [gru] epoch 19 val CO2 MAE 15.62
+  [gru] epoch 20 val CO2 MAE 15.07
+  [gru] epoch 21 val CO2 MAE 14.70
+  [gru] epoch 22 val CO2 MAE 14.49
+  [gru] epoch 23 val CO2 MAE 14.72
+  [gru] epoch 24 val CO2 MAE 15.17
+  [gru] epoch 25 val CO2 MAE 14.58
+  [gru] epoch 26 val CO2 MAE 15.02
+  [gru] epoch 27 val CO2 MAE 14.43
+  [gru] epoch 28 val CO2 MAE 15.21
+  [gru] epoch 29 val CO2 MAE 14.28
+  [gru] epoch 30 val CO2 MAE 14.38
+  [gru] epoch 31 val CO2 MAE 14.63
+  [gru] epoch 32 val CO2 MAE 13.95
+  [gru] epoch 33 val CO2 MAE 14.13
+  [gru] epoch 34 val CO2 MAE 14.29
+  [gru] epoch 35 val CO2 MAE 14.21
+  [gru] epoch 36 val CO2 MAE 14.03
+  [gru] epoch 37 val CO2 MAE 14.05
+  [gru] epoch 38 val CO2 MAE 14.01
+== GRU (일정 제외)
+  [gru] epoch  1 val CO2 MAE 35.52
+  [gru] epoch  2 val CO2 MAE 33.37
+  [gru] epoch  3 val CO2 MAE 32.87
+  [gru] epoch  4 val CO2 MAE 31.14
+  [gru] epoch  5 val CO2 MAE 30.91
+  [gru] epoch  6 val CO2 MAE 29.88
+  [gru] epoch  7 val CO2 MAE 28.37
+  [gru] epoch  8 val CO2 MAE 28.61
+  [gru] epoch  9 val CO2 MAE 26.53
+  [gru] epoch 10 val CO2 MAE 25.98
+  [gru] epoch 11 val CO2 MAE 24.37
+  [gru] epoch 12 val CO2 MAE 22.43
+  [gru] epoch 13 val CO2 MAE 23.58
+  [gru] epoch 14 val CO2 MAE 21.14
+  [gru] epoch 15 val CO2 MAE 20.67
+  [gru] epoch 16 val CO2 MAE 21.70
+  [gru] epoch 17 val CO2 MAE 20.23
+  [gru] epoch 18 val CO2 MAE 20.17
+  [gru] epoch 19 val CO2 MAE 20.55
+  [gru] epoch 20 val CO2 MAE 19.08
+  [gru] epoch 21 val CO2 MAE 18.97
+  [gru] epoch 22 val CO2 MAE 19.21
+  [gru] epoch 23 val CO2 MAE 19.70
+  [gru] epoch 24 val CO2 MAE 19.62
+  [gru] epoch 25 val CO2 MAE 18.45
+  [gru] epoch 26 val CO2 MAE 19.10
+  [gru] epoch 27 val CO2 MAE 19.18
+  [gru] epoch 28 val CO2 MAE 18.79
+  [gru] epoch 29 val CO2 MAE 18.94
+  [gru] epoch 30 val CO2 MAE 18.25
+  [gru] epoch 31 val CO2 MAE 18.82
+  [gru] epoch 32 val CO2 MAE 18.86
+  [gru] epoch 33 val CO2 MAE 19.47
+  [gru] epoch 34 val CO2 MAE 19.49
+  [gru] epoch 35 val CO2 MAE 19.86
+  [gru] epoch 36 val CO2 MAE 19.84
+== LSTM
+  [lstm] epoch  1 val CO2 MAE 23.79
+  [lstm] epoch  2 val CO2 MAE 19.84
+  [lstm] epoch  3 val CO2 MAE 18.90
+  [lstm] epoch  4 val CO2 MAE 17.92
+  [lstm] epoch  5 val CO2 MAE 17.69
+  [lstm] epoch  6 val CO2 MAE 18.29
+  [lstm] epoch  7 val CO2 MAE 17.26
+  [lstm] epoch  8 val CO2 MAE 17.15
+  [lstm] epoch  9 val CO2 MAE 16.65
+  [lstm] epoch 10 val CO2 MAE 17.38
+  [lstm] epoch 11 val CO2 MAE 16.38
+  [lstm] epoch 12 val CO2 MAE 15.87
+  [lstm] epoch 13 val CO2 MAE 16.16
+  [lstm] epoch 14 val CO2 MAE 15.50
+  [lstm] epoch 15 val CO2 MAE 15.85
+  [lstm] epoch 16 val CO2 MAE 15.21
+  [lstm] epoch 17 val CO2 MAE 15.04
+  [lstm] epoch 18 val CO2 MAE 15.65
+  [lstm] epoch 19 val CO2 MAE 15.69
+  [lstm] epoch 20 val CO2 MAE 15.20
+  [lstm] epoch 21 val CO2 MAE 14.77
+  [lstm] epoch 22 val CO2 MAE 15.19
+  [lstm] epoch 23 val CO2 MAE 14.34
+  [lstm] epoch 24 val CO2 MAE 14.70
+  [lstm] epoch 25 val CO2 MAE 14.70
+  [lstm] epoch 26 val CO2 MAE 14.35
+  [lstm] epoch 27 val CO2 MAE 14.24
+  [lstm] epoch 28 val CO2 MAE 14.51
+  [lstm] epoch 29 val CO2 MAE 14.58
+  [lstm] epoch 30 val CO2 MAE 14.10
+  [lstm] epoch 31 val CO2 MAE 14.00
+  [lstm] epoch 32 val CO2 MAE 14.15
+  [lstm] epoch 33 val CO2 MAE 13.97
+  [lstm] epoch 34 val CO2 MAE 13.93
+  [lstm] epoch 35 val CO2 MAE 14.05
+  [lstm] epoch 36 val CO2 MAE 13.78
+  [lstm] epoch 37 val CO2 MAE 14.69
+  [lstm] epoch 38 val CO2 MAE 14.01
+  [lstm] epoch 39 val CO2 MAE 13.79
+  [lstm] epoch 40 val CO2 MAE 13.99
+== TCN
+  [tcn] epoch  1 val CO2 MAE 28.96
+  [tcn] epoch  2 val CO2 MAE 21.76
+  [tcn] epoch  3 val CO2 MAE 18.89
+  [tcn] epoch  4 val CO2 MAE 18.65
+  [tcn] epoch  5 val CO2 MAE 17.47
+  [tcn] epoch  6 val CO2 MAE 18.11
+  [tcn] epoch  7 val CO2 MAE 18.02
+  [tcn] epoch  8 val CO2 MAE 17.04
+  [tcn] epoch  9 val CO2 MAE 16.36
+  [tcn] epoch 10 val CO2 MAE 16.68
+  [tcn] epoch 11 val CO2 MAE 17.18
+  [tcn] epoch 12 val CO2 MAE 15.81
+  [tcn] epoch 13 val CO2 MAE 15.37
+  [tcn] epoch 14 val CO2 MAE 15.45
+  [tcn] epoch 15 val CO2 MAE 16.08
+  [tcn] epoch 16 val CO2 MAE 16.32
+  [tcn] epoch 17 val CO2 MAE 17.10
+  [tcn] epoch 18 val CO2 MAE 15.88
+  [tcn] epoch 19 val CO2 MAE 14.99
+  [tcn] epoch 20 val CO2 MAE 15.21
+  [tcn] epoch 21 val CO2 MAE 14.92
+  [tcn] epoch 22 val CO2 MAE 15.28
+  [tcn] epoch 23 val CO2 MAE 15.21
+  [tcn] epoch 24 val CO2 MAE 15.48
+  [tcn] epoch 25 val CO2 MAE 15.17
+  [tcn] epoch 26 val CO2 MAE 14.95
+  [tcn] epoch 27 val CO2 MAE 15.28
+## 2. 모델 비교 — CO₂ MAE (ppm, 시험 주, 전체 공간)
+| model       |    5분 |   15분 |   30분 |   60분 |   60분 개선율(vs 현재값 유지) |
+|:------------|------:|------:|------:|------:|---------------------:|
+| GRU         |  6.31 |  9.35 | 11.79 | 14.96 |                63.42 |
+| GRU (일정 제외) |  7.74 | 12.66 | 16.71 | 20.38 |                50.17 |
+| LSTM        |  6.4  |  9.5  | 12.12 | 14.87 |                63.63 |
+| TCN         |  6.75 |  9.87 | 12.59 | 15.6  |                61.85 |
+| 어제 같은 시각    | 80.64 | 80.8  | 80.87 | 80.78 |               -97.53 |
+| 최근 1시간 평균   | 28.61 | 33.97 | 41.4  | 54.45 |               -33.15 |
+| 현재값 유지      | 10.27 | 21.91 | 33.23 | 40.9  |                 0    |
+
+## 3. 온도 MAE (℃)
+| model       |   5분 |   15분 |   30분 |   60분 |
+|:------------|-----:|------:|------:|------:|
+| GRU         | 0.06 |  0.06 |  0.07 |  0.08 |
+| GRU (일정 제외) | 0.06 |  0.07 |  0.07 |  0.1  |
+| LSTM        | 0.06 |  0.06 |  0.07 |  0.08 |
+| TCN         | 0.06 |  0.07 |  0.07 |  0.09 |
+| 어제 같은 시각    | 0.67 |  0.67 |  0.67 |  0.68 |
+| 최근 1시간 평균   | 0.18 |  0.24 |  0.32 |  0.48 |
+| 현재값 유지      | 0.07 |  0.11 |  0.18 |  0.34 |
+
+## 4. 공간별 60분 CO₂ MAE (ppm)
+| model       |   강의실1 |   강의실2 |   라운지 |   회의실 |
+|:------------|-------:|-------:|------:|------:|
+| GRU         |  19.55 |  11.19 | 11.83 | 17.55 |
+| GRU (일정 제외) |  24.87 |  15.48 | 10.6  | 31.43 |
+| LSTM        |  19.01 |  12.94 | 11.47 | 16.45 |
+| TCN         |  22.18 |  13.67 | 10.86 | 16.27 |
+| 어제 같은 시각    |  94    | 145.47 | 24.65 | 66.88 |
+| 최근 1시간 평균   |  97.57 |  59.76 | 24.55 | 40.23 |
+| 현재값 유지      |  69.9  |  40.17 | 21.71 | 34.44 |
+
+## 5. 학습 시간 (초, CPU)
+|             |   학습 시간(s) |
+|:------------|-----------:|
+| GRU         |         75 |
+| GRU (일정 제외) |         71 |
+| LSTM        |         91 |
+| TCN         |        277 |
+
+## 6. 결론
+- 가장 좋은 모델: **LSTM** — 60분 CO₂ 오차 14.9ppm, '현재값 유지'(40.9ppm) 대비 **64% 감소** (✅ 목표 30% 달성)
+- **일정 정보의 가치**: 일정을 넣으면 60분 CO₂ 오차가 5.4ppm 줄어든다 (GRU 일정 제외 20.4 → 포함 15.0ppm).
+- 공간별로는 **강의실1** 가 가장 어렵다(60분 19.0ppm). 인원이 가장 많아(정원 30명) 수업 시작·쉬는 시간마다 CO₂ 가 수백 ppm씩 오르내리고, 쉬는 시간 창문 개방 여부도 날마다 다르기 때문이다.
+- 일정 정보 효과가 가장 큰 공간: **회의실** (60분 오차 31.4 → 17.5ppm). 과거 센서값에는 '곧 누가 들어온다'는 정보가 없어서, 수업 시작·회의 예약을 미리 알면 상승 시점을 맞힐 수 있다. 다만 노쇼·연장·예약 없는 사용처럼 일정과 실제가 어긋나는 경우는 일정을 넣어도 맞히지 못한다.
+- 오차가 큰 순간은 수업 시작·쉬는 시간(창문 개방)·회의 시작처럼 재실 인원이 급변하는 시점이다. 일정은 '계획'만 알려 주므로 지각·결석·연장으로 생기는 차이는 여전히 맞히기 어렵다.
+- 온도는 냉방이 설정 온도로 묶어 두어 변화가 작아 모든 방법의 오차가 작다. 대신 냉방 정지 같은 고장 때 크게 벗어난다(과제 4).
+- 실데이터에는 일정 자료가 없어, 서비스(과제 8)에는 '일정 제외' 모델을 쓰거나 일정 자료를 받아 연결해야 한다.

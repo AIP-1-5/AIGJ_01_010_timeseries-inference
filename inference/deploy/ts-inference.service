@@ -1,0 +1,18 @@
+# 과제 8 상시 추론 서비스 (deploy/install_service.sh 가 __USER__, __DIR__ 을 채워 설치)
+[Unit]
+Description=Timeseries inference service (assignment 8)
+Wants=network-online.target ts-collector.service
+After=network-online.target ts-collector.service
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__DIR__
+ExecStart=__DIR__/.venv/bin/python -m service.run --config service/config.yaml
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=0
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,19 @@
+# systemd 서비스 파일 (deploy/install.sh 가 __USER__, __DIR__ 을 채워서 설치합니다)
+[Unit]
+Description=MQTT sensor collector (timeseries assignment 1)
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+User=__USER__
+WorkingDirectory=__DIR__
+ExecStart=__DIR__/.venv/bin/python -m collector.main --config config.yaml --env .env
+# 죽으면 5초 뒤 다시 시작, 몇 번을 죽어도 계속 재시작
+Restart=always
+RestartSec=5
+StartLimitIntervalSec=0
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target

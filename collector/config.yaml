@@ -1,0 +1,113 @@
+# ─────────────────────────────────────────────────────────────
+# 수집기 설정. 메시지 형식이 바뀌거나 센서가 늘어나면 이 파일만 고친다.
+# 비밀번호는 여기에 쓰지 않는다 → .env 의 MQTT_PASSWORD
+# ─────────────────────────────────────────────────────────────
+
+timezone: Asia/Seoul        # 센서 시각에 시간대가 없을 때 이 시간대로 해석
+
+mqtt:
+  host: <교육장-MQTT-브로커>
+  port: 1883
+  username_env: MQTT_USERNAME   # .env 에서 읽을 환경변수 이름
+  password_env: MQTT_PASSWORD
+  # client_id: ts-collector-team5b   # 비워 두면 ts-collector-<호스트이름>
+  # 구독할 토픽 (2026-10-20 tools/discover.py 로 확인한 실제 토픽)
+  #  - application/<앱ID>/device/<기기EUI>/event/up : ChirpStack(LoRaWAN) 센서 업링크
+  #  - xflow/hvacr/idu/<ID>/status                  : 냉난방 실내기 상태
+  topics: ["application/+/device/+/event/up", "xflow/hvacr/+/+/status"]
+  qos: 1
+  clean_session: false          # false: 잠깐 끊긴 동안의 메시지를 재접속 후 받음
+  keepalive: 30
+  reconnect_min_delay: 1        # 끊기면 1초 → … → 최대 5초 간격으로 재접속
+  reconnect_max_delay: 5
+
+storage:
+  path: data/sensors.db         # SQLite (WAL 모드)
+  keep_unmatched: true          # 규칙에 안 맞는 메시지도 원문을 남김 (형식 확인용)
+  unmatched_limit: 5000
+
+# 항목 이름 통일: 왼쪽 이름으로 오면 오른쪽 이름으로 저장 (대소문자 무시)
+metric_aliases:
+  co2: co2
+  CO2: co2
+  carbon_dioxide: co2
+  temp: temperature
+  temperature: temperature
+  tmp: temperature
+  hum: humidity
+  humi: humidity
+  humidity: humidity
+  rh: humidity
+
+# 공간 이름 통일 (예: 센서 ID → 공간 이름)
+space_aliases: {}
+#   sensor-01: lecture1
+#   sensor-02: lecture2
+
+# 위에서부터 차례로 검사해 처음 맞는 규칙 하나만 적용한다.
+rules:
+  # [실제 형식] ChirpStack 센서 업링크 (2026-10-20 확인)
+  # {"time": "2026-10-20T07:48:42.752+00:00",
+  #  "deviceInfo": {"devEui": "...", "deviceName": "AM107-067999",
+  #                 "tags": {"location": "실습실", "point": "후면 오른쪽"}},
+  #  "object": {"co2": 974, "temperature": 24.3, "humidity": 61.5, "tvoc": 284, ...}}
+  # 한 공간(location)에 센서가 여러 대 → device, point 도 함께 저장
+  - name: chirpstack-uplink
+    topic: "application/+/device/{device}/event/up"
+    payload: json
+    space_path: deviceInfo.tags.location
+    point_path: deviceInfo.tags.point
+    timestamp: time
+    seq_path: fCnt                 # LoRaWAN 프레임 번호: 같은 업링크가 두 번 와도(게이트웨이 2대) 한 번만 저장
+    fields_from: object            # object 안의 숫자 필드를 모두 항목으로
+    only_metrics: [co2, temperature, humidity]
+
+  # [실제 형식] 냉난방 실내기·실외기 상태 (이상 탐지 '냉방 정지' 분석에 활용)
+  # {"ts": 1792482080491, "values": {"회의실": {"power": false, "current_temperature": 22.3, ...}}}
+  - name: hvac-status
+    topic: "xflow/hvacr/{unit_type}/{device}/status"
+    payload: json
+    timestamp: ts
+    fields_from: "values.*"        # values 의 키(회의실 등) = 공간, 그 안의 필드 = 항목
+    metric_prefix: "hvac_"
+    bool_as_number: true           # power: true/false → 1/0
+    only_metrics: [hvac_power, hvac_current_temperature, hvac_target_temperature,
+                   hvac_current_humidity, hvac_mode, hvac_fan_speed, hvac_online,
+                   hvac_outdoor_temperature]
+
+  # [예비] 형식을 모를 때: 숫자 필드를 자동으로 찾아 저장한다.
+  # 새 토픽을 구독에 추가했는데 정확한 규칙이 없으면 이 규칙이 받는다.
+  - name: auto
+    topic: "#"
+    payload: auto
+    space_level: -2     # 페이로드에 공간 정보가 없으면 토픽의 뒤에서 두 번째 단계를 공간으로
+    metric_level: -1    # 숫자 하나만 오면 토픽 마지막 단계를 항목으로
+    # 공용 브로커라 다른 팀이 올리는 숫자(예측값 등)도 섞여 온다 → 이 항목만 저장
+    only_metrics: [co2, temperature, humidity]
+
+  # ── 예시: 형식을 확인한 뒤 auto 위로 옮겨 쓰세요 ──────────────
+  # (1) 토픽마다 항목 하나, JSON {"value": 812, "ts": 1760925600}
+  # - name: per-metric-json
+  #   topic: "academy/{space}/{metric}"
+  #   payload: json
+  #   value: value
+  #   timestamp: ts
+  #
+  # (2) 공간별 토픽에 여러 항목, JSON {"co2": 812, "temp": 24.1, "hum": 41, "time": "2026-10-20 14:30:00"}
+  # - name: multi-field-json
+  #   topic: "academy/{space}"
+  #   payload: json
+  #   fields: {co2: co2, temperature: temp, humidity: hum}
+  #   timestamp: time
+  #
+  # (3) 숫자만 오는 경우: 토픽 academy/lecture1/co2, 페이로드 812
+  # - name: plain-number
+  #   topic: "academy/{space}/{metric}"
+  #   payload: number
+  #
+  # (4) 공간이 페이로드 안에 있는 경우: {"room": "meeting", "data": {"co2": 900}}
+  # - name: room-in-payload
+  #   topic: "sensors/+"
+  #   payload: json
+  #   space_path: room
+  #   fields: {co2: data.co2}

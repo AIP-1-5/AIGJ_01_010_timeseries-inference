@@ -1,0 +1,18 @@
+{
+ "from": "2026-10-21T16:14:28.767523050+09:00",
+ "to": "2026-10-22T04:13:24.524037600+09:00",
+ "hours_covered": 11.98,
+ "cycles": 713,
+ "ok": 713,
+ "failed": 0,
+ "processing_ms": {
+  "mean": 953.3,
+  "p95": 1437.8,
+  "max": 1785.7
+ },
+ "max_gap_between_cycles_sec": 475.6,
+ "alarms_sent": {
+  "data_gap": 10
+ },
+ "errors": {}
+}

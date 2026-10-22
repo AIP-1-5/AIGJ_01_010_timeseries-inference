@@ -1,0 +1,16 @@
+.env
+.env_*
+.venv/
+data/
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+# 모델·DB 파일은 올리지 않는다 (보드 /srv/team5 또는 각자 로컬)
+*.pt
+*.onnx
+*.engine
+*.pkl
+*.db
+*.db-wal
+*.db-shm

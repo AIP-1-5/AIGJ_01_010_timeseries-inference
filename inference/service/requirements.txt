@@ -1,0 +1,6 @@
+numpy>=1.26
+pandas>=2.1
+onnxruntime>=1.18
+scikit-learn==1.6.1
+paho-mqtt>=2.0,<3
+PyYAML>=6.0

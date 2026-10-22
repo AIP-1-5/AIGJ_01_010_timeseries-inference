@@ -1,0 +1,26 @@
+{
+ "lookback": 24,
+ "horizon": 12,
+ "n_in": 9,
+ "features": [
+  "co2",
+  "temperature",
+  "humidity"
+ ],
+ "targets": [
+  "co2",
+  "temperature"
+ ],
+ "test_mae_60min": {
+  "co2": 23.09677505493164,
+  "temperature": 0.0891430452466011
+ },
+ "test_mae_persistence_60min": {
+  "co2": 40.897178649902344,
+  "temperature": 0.3409724533557892
+ },
+ "resid_sd_15min_norm": {
+  "co2": 0.16737382113933563,
+  "temperature": 0.047396112233400345
+ }
+}

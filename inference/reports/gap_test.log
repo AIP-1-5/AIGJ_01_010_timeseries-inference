@@ -1,0 +1,87 @@
+--- 정지 전 2026-10-21 17:56:01
+{
+ "ok": true,
+ "last_cycle_age_sec": 33.1,
+ "uptime_sec": 7293,
+ "mqtt": false
+}
+복도 anomaly= False
+사무실 anomaly= False
+사무실 밖 anomaly= False
+실습실 anomaly= False
+회의실 anomaly= False
+수집기 일시정지 PID=15253 2026-10-21 17:56:01
+--- 정지 4분 후 2026-10-21 18:00:01
+{
+ "ok": true,
+ "last_cycle_age_sec": 33.2,
+ "uptime_sec": 7533,
+ "mqtt": false
+}
+복도 anomaly= True
+사무실 anomaly= True
+사무실 밖 anomaly= True
+실습실 anomaly= True
+회의실 anomaly= True
+--- 정지 10분 후 2026-10-21 18:06:02
+{
+ "ok": true,
+ "last_cycle_age_sec": 33.3,
+ "uptime_sec": 7893,
+ "mqtt": false
+}
+복도 anomaly= True
+사무실 anomaly= True
+사무실 밖 anomaly= True
+실습실 anomaly= True
+회의실 anomaly= True
+수집기 재개 2026-10-21 18:06:02
+--- 재개 2.5분 후 2026-10-21 18:08:32
+{
+ "ok": true,
+ "last_cycle_age_sec": 3.3,
+ "uptime_sec": 8043,
+ "mqtt": false
+}
+복도 anomaly= False
+사무실 anomaly= False
+사무실 밖 anomaly= False
+실습실 anomaly= False
+회의실 anomaly= False
+[
+ {
+  "time": "2026-10-21T17:59:30.145752668+09:00",
+  "space": "회의실",
+  "kind": "data_gap",
+  "metric": null,
+  "detail": "수집기 전체 수신 없음 219초 (수집기·브로커·네트워크 확인)"
+ },
+ {
+  "time": "2026-10-21T17:59:30.143178701+09:00",
+  "space": "실습실",
+  "kind": "data_gap",
+  "metric": null,
+  "detail": "수집기 전체 수신 없음 219초 (수집기·브로커·네트워크 확인)"
+ },
+ {
+  "time": "2026-10-21T17:59:30.140709877+09:00",
+  "space": "사무실 밖",
+  "kind": "data_gap",
+  "metric": null,
+  "detail": "수집기 전체 수신 없음 219초 (수집기·브로커·네트워크 확인)"
+ },
+ {
+  "time": "2026-10-21T17:59:30.137869596+09:00",
+  "space": "사무실",
+  "kind": "data_gap",
+  "metric": null,
+  "detail": "수집기 전체 수신 없음 219초 (수집기·브로커·네트워크 확인)"
+ },
+ {
+  "time": "2026-10-21T17:59:30.133932829+09:00",
+  "space": "복도",
+  "kind": "data_gap",
+  "metric": null,
+  "detail": "수집기 전체 수신 없음 219초 (수집기·브로커·네트워크 확인)"
+ }
+]
